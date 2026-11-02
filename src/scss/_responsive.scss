@@ -1,0 +1,7 @@
+//===== Screen Size =====
+
+@mixin responsiveUI($device) {
+  @media (max-width: $device) {
+    @content;
+  }
+}

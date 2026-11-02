@@ -1,0 +1,36 @@
+@use "../../scss/variable" as var;
+@use "../../scss/responsive" as bp;
+
+.home {
+  background: var.$color-primary;
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  background-size: cover;
+
+  //   .login img
+  & img {
+    width: 42vw;
+  }
+
+  //   .login .btn-next
+  & .btn-next {
+    position: relative;
+    font-weight: 550;
+    bottom: 2rem;
+    padding: 8px;
+    font-family: verdana, sans-serif, tahoma;
+  }
+
+  //   Media Query
+  @include bp.responsiveUI(var.$mobile) {
+    .home {
+      background: var.$color-primary;
+
+      & img {
+        display: none;
+      }
+    }
+  }
+}

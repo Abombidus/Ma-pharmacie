@@ -1,0 +1,281 @@
+@use "../../scss/variable" as var;
+@use "../../scss/responsive" as bp;
+
+.back {
+  padding: 0;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 100%;
+  color: var.$color-white;
+  background: var.$success;
+  position: absolute;
+  left: 0.3rem;
+  top: 0.4rem;
+}
+
+.container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  & .login {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    & .login-head {
+      display: flex;
+      flex-direction: column;
+    }
+    //   .login .login-head h1
+    & .login-head h2 {
+      position: relative;
+      top: 1rem;
+    }
+
+    //   .login .login-head h1
+    & .login-head h1 {
+      color: var.$color-primary;
+    }
+
+    //   .login .login-head h3
+    & .login-head h3 {
+      content: "";
+      position: absolute;
+      left: 34rem;
+      top: 5.5rem;
+      background: var.$color-primary;
+      height: 0.7vh;
+      width: 3.5vw;
+    }
+
+    //    .login .login-middle
+    & .login-middle {
+      margin-top: 0.3rem;
+      display: flex;
+      margin-left: 1rem;
+      margin-right: 0.1rem;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+
+      & .one {
+        width: 95%;
+        height: 100%;
+      }
+
+      & .two {
+        width: 100%;
+        height: 100%;
+      }
+      //   .login .login-middle .one img
+      & .one img {
+        width: 95%;
+        box-shadow: 2px 3px 3px gray;
+        border-radius: 1.3rem;
+      }
+
+      //  .login .two fieldset
+      & .two fieldset {
+        border: 2px solid transparent;
+        box-shadow: 3px 4px 4px gray;
+        background: var.$color-green-soft;
+        border-radius: 1rem;
+        width: 97%;
+        height: 68.4vh;
+        position: relative;
+        right: 1rem;
+        padding: 43px;
+        align-items: center;
+
+        //  .login .two fieldset > form
+        & form {
+          padding: 26px;
+          display: block;
+          // gap: px;
+
+          & p {
+            font-size: x-large;
+            font-weight: 400;
+          }
+          //  .login .two fieldset > form input
+          & label {
+            font-size: 35px;
+            align-items: center;
+          }
+          //  .login .two fieldset > form input
+          & input {
+            width: 30vw;
+            padding: 0.6rem;
+            border-radius: 1rem;
+
+            //  section .two fieldset > form input :focus
+            &:focus {
+              font-size: x-large;
+              text-align: center;
+            }
+
+            //  section .two fieldset > form input ::placeholder
+            &::placeholder {
+              text-align: center;
+              position: relative;
+              top: 0.3rem;
+              font-size: x-large;
+            }
+          }
+
+          & article {
+            position: relative;
+            gap: 2px;
+            top: 1rem;
+
+            // .login .two fieldset > form article .btn-submit
+            & .btn-submit {
+              background: var.$success;
+              color: var.$color-white;
+              position: relative;
+              top: 0.9rem;
+              font-size: 18px;
+
+              &:active {
+                background: var.$color-active;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //   Responsive User Interface for Tablette
+    @include bp.responsiveUI(var.$tablette) {
+      // .login
+      & {
+        align-self: center;
+
+        // .login .login-head h1
+        & .login-head h1 {
+          font-size: 38px;
+        }
+
+        // .login .login-head h2
+        & .login-head h2 {
+          font-size: 30px;
+        }
+
+        // .login .login-head h3
+        & .login-head h3 {
+          position: absolute;
+          left: 15.7rem;
+          top: 6.5rem;
+          width: 6vw;
+        }
+
+        // .login .login-middle
+        & .login-middle {
+          display: grid;
+          gap: 5px;
+          grid-template-columns: 1fr;
+          width: 90%;
+
+          // .login .login-middle .one > img
+          & .one img {
+            width: 100%;
+          }
+
+          // .login .login-middle .two fieldset
+          & .two fieldset {
+            height: auto;
+            margin-bottom: 0.5rem;
+
+            // .login .login-middle .two fieldset form
+            & form {
+              font-size: 25px;
+
+              // .login .login-middle .two fieldset form p
+              & p {
+                font-size: 25px;
+              }
+
+              // .login .login-middle .two fieldset form input
+              & input {
+                width: 80%;
+                height: 5vh;
+
+                &:focus {
+                  height: 2.6rem;
+                }
+              }
+
+              & article .btn-submit {
+                font-size: 23px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Responsive User Interface for Mobile
+    @include bp.responsiveUI(var.$mobile) {
+      // .login
+      & {
+        margin: 0;
+        padding: 0;
+        align-items: center;
+
+        & .login-head {
+          text-align: left;
+        }
+        & .login-head h3 {
+          position: absolute;
+          left: 1.4rem;
+          width: 12vw;
+          top: 6.5rem;
+        }
+
+        & .login-middle {
+          padding: 0;
+          align-items: center;
+          margin: 0;
+
+          & .one {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+
+            & img {
+              aspect-ratio: 1;
+              width: 95vw;
+              height: 55vh;
+            }
+          }
+
+          .two {
+            width: 100%;
+            margin-left: 0.9rem;
+            align-items: center;
+
+            & fieldset {
+              width: 95vw;
+              padding: 0;
+              padding-bottom: 1rem;
+              height: max-content;
+
+              & form > p {
+                font-size: 20px;
+              }
+              & form input:focus {
+                height: 2.5rem;
+              }
+              & form article .btn-submit {
+                font-size: x-large;
+              }
+            }
+          }
+        }
+
+        & .new-account {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

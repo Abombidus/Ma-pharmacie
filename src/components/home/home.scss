@@ -1,36 +1,73 @@
 @use "../../scss/variable" as var;
 @use "../../scss/responsive" as bp;
 
+@mixin responsiveUI($device) {
+  @media (max-width: $device) {
+    @content;
+  }
+}
+
 .home {
   background: var.$color-primary;
-  display: flex;
-  justify-content: center;
-
-  flex-direction: column;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 
-  //   .login img
+  //   section img
   & img {
-    width: 42vw;
+    width: 43vw;
   }
-
-  //   .login .btn-next
+  // section button
   & .btn-next {
+    padding: 0.5rem;
     position: relative;
+    bottom: 1.6rem;
     font-weight: 550;
-    bottom: 2rem;
-    padding: 8px;
-    font-family: verdana, sans-serif, tahoma;
+    font-size: 18px;
+    background: rgb(20, 146, 204);
+    color: var.$color-white;
+
+    &:active {
+      background: var.$color-active;
+    }
+
+    &:hover {
+      transition: 300ms ease-in;
+      background: var.$color-active;
+    }
   }
 
-  //   Media Query
-  @include bp.responsiveUI(var.$mobile) {
-    .home {
-      background: var.$color-primary;
+  // Responsive User Interface
+  // 1- Tablette !
+  @include bp.responsiveUI(var.$tablette) {
+    & {
+      gap: 4rem;
 
       & img {
-        display: none;
+        width: 90%;
+        margin-top: 3rem;
+        align-items: center;
+        min-height: 70vh;
+      }
+
+      & .btn-next {
+        font-size: 2rem;
       }
     }
   }
+
+  // 2- Mobile
+  @include bp.responsiveUI(var.$mobile) {
+    & {
+      gap: 3rem;
+
+      & img {
+        width: 100%;
+        margin-top: 6rem;
+        align-items: center;
+        min-height: 60vh;
+      }
+    }
+  }
+  // 2- Tablette
 }
